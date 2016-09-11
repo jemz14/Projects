@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>	MEAN MEDIAN MODE</title>
+</head>
+<body>
+	<h3> WELCOME USER!
+</body>
+<script type="text/javascript">
+function mean(numbers) {
+  var total = 0,
+      jemz;
+  for (jemz = 0; jemz < numbers.length; jemz += 1) {
+      total += numbers[jemz];
+  }
+  return total / numbers.length;
+}
+function median(numbers) {
+  var median = 0,
+      numsLen = numbers.length;
+  numbers.sort();
+  if (numsLen % 2 === 0) {
+      median = (numbers[numsLen / 2 - 1] + numbers[numsLen / 2]) / 2;
+  } else { 
+      median = numbers[(numsLen - 1) / 2];
+  }
+  return median;
+}
+function mode(numbers) {
+  var modes = [],
+      count = [],
+      i,
+      number,
+      maxLength = 0;
+  for (i = 0; i < numbers.length; i += 1) {
+      number = numbers[i];
+      count[number] = (count[number] || 0) + 1;
+      if (count[number] > maxLength) {
+          maxLength = count[number];
+      }
+  }
+  for (i in count) if (count.hasOwnProperty(i)) {
+      if (count[i] === maxLength) {
+          modes.push(Number(i));
+      }
+  }
+  return modes;
+}
+var Numbers = [1,2,3,3];
+console.log("MEAN is " + Math.round(mean(Numbers)));
+console.log("MEDIAN is " + Math.round(median(Numbers)));
+console.log("MODE is "+ mode(Numbers));
+var A = "Answer by Jemz";
+console.log(A);
+</script>
+</html>
